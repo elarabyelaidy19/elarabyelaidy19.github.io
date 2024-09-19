@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .post-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ site.title }}</h1>
+    </header>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+    </footer>
+</body>
+</html>

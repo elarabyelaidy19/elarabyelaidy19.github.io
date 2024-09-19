@@ -7,7 +7,7 @@ categories: update
 
 # Welcome to My Digital Garden
 
-This is my first post on my Digital Garden.
+This is my first post on my 
 
 ## What to expect
 

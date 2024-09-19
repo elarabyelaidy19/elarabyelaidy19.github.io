@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+xlog \
+--sitename "Elaraby Elaidy" \
+--index=Home \
+--gpg=A9835BF728B3C71784FE538C5D33E3F3A9937BAD \
+--custom_head=header.html \
+# --sitemap.domain=www.elarabyelaidy.com \
+# --activitypub.domain=www.elarabyelaidy.com \
+--activitypub.username=Elaraby \
+--activitypub.summary="A Software Engineer. Ruby" \
+# --og.domain=www.elarabyelaidy.com \
+--twitter.username=@elarabyelaidy \
+--github.repo=https://github.com/elarabyelaidy/elarabyelaidy19.github.io \
+# --rss.domain=www.elarabyelaidy.com \
+--rss.description="A Software Engineer. Ruby"

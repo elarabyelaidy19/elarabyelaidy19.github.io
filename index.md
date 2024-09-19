@@ -2,9 +2,7 @@
 layout: default
 ---
 
-# Welcome to My Minimal GitHub Website
-
-This is the home page of my minimal GitHub website. Here you'll find my latest posts and updates.
+# Welcome to My Digital Garden
 
 ## Recent Posts
 

@@ -5,9 +5,9 @@ date:   2021-12-04 22:41:59 +0100
 categories: update
 --- -->
 
-# Welcome to My Minimal GitHub Website
+# Welcome to My Digital Garden
 
-This is my first post on my new minimal GitHub website. I'm excited to share my thoughts and projects here!
+This is my first post on my Digital Garden.
 
 ## What to expect
 

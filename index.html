@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=2">
+  <link rel="stylesheet" href="/style.css?v=3">
 </head>
 <body>
   <div class="wrap">
@@ -26,7 +26,30 @@
 
     <main>
       <section class="hero fade">
-        <div class="portrait"><span class="monogram" aria-hidden="true">E</span></div>
+        <button type="button" class="portrait" aria-label="Flip portrait">
+          <svg class="rings" viewBox="0 0 200 200" aria-hidden="true">
+            <g class="slow">
+              <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"/>
+              <path d="M100 5A95 95 0 0 1 195 100" fill="none" stroke="currentColor" stroke-width="2" opacity=".7"/>
+              <path d="M195 100A95 95 0 0 1 100 195" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/>
+            </g>
+            <g class="medium">
+              <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width=".5" opacity=".3"/>
+              <path d="M100 12A88 88 0 0 1 188 100" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"/>
+              <path d="M12 100A88 88 0 0 1 100 12" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"/>
+            </g>
+            <g class="fast" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6">
+              <path d="M100 18A82 82 0 0 1 150 30"/>
+              <path d="M182 100A82 82 0 0 1 170 150"/>
+              <path d="M100 182A82 82 0 0 1 50 170"/>
+              <path d="M18 100A82 82 0 0 1 30 50"/>
+            </g>
+          </svg>
+          <span class="flip">
+            <span class="face front"><span class="monogram" aria-hidden="true">E</span></span>
+            <span class="face back"><span class="monogram" aria-hidden="true">✦</span></span>
+          </span>
+        </button>
         <h1>Elaraby</h1>
       </section>
 
@@ -82,13 +105,16 @@
 
   <script>
     const buttons = document.querySelectorAll(".pill button");
+    const portrait = document.querySelector(".portrait");
     function show(mode) {
+      portrait.classList.toggle("flipped", mode === "personal");
       buttons.forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
       document.querySelectorAll("[data-kind]").forEach(el => {
         el.hidden = !el.dataset.kind.split(" ").includes(mode);
       });
     }
     buttons.forEach(b => b.addEventListener("click", () => show(b.dataset.mode)));
+    portrait.addEventListener("click", () => show(portrait.classList.contains("flipped") ? "professional" : "personal"));
   </script>
 </body>
 </html>

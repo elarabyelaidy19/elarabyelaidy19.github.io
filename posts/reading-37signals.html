@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-mode="professional">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What I Learned Reading 37signals&#x27; Code • Elaraby Elaidy</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.82em' font-size='90' text-anchor='middle' font-family='serif' fill='%23d9a441'>E</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=4">
+  <script>
+    try { document.documentElement.dataset.mode = localStorage.getItem("mode") || "professional"; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="home" href="/">Home</a>
+    </header>
+
+    <main>
+      <article class="post fade">
+        <h1>What I Learned Reading 37signals&#x27; Code</h1>
+        <p class="meta"><time datetime="2026-08-03">3 Aug 2026</time> · 2 min read</p>
+
+        <div class="prose">
+<p>Most of us learn Rails from tutorials and then spend years learning it again from production. Reading code written by the people who made Rails is a shortcut I wish I'd taken earlier.</p>
+<p>37signals released the source of Campfire and Fizzy, and I spent a few weekends reading them like books. A few things stuck with me.</p>
+<h3>Rich models, thin everything else</h3>
+<p>There are no service objects with names ending in "Service." Behavior lives on the models, split into small concerns named after what they do: <code>Card::Closeable</code>, <code>Card::Assignable</code>. A model reads like a list of capabilities.</p>
+<pre><code>class Card &lt; ApplicationRecord
+  include Assignable, Closeable, Golden, Watchable
+end</code></pre>
+<h3>Controllers are boring on purpose</h3>
+<p>Instead of custom actions, they create new resources. Closing a card isn't <code>CardsController#close</code>, it's <code>Cards::ClosuresController#create</code>. Every controller ends up with the same seven verbs, so you always know where to look.</p>
+<h3>Fewer dependencies than you'd expect</h3>
+<p>Hotwire for the front end, the database for jobs and caching, and very few gems. Every dependency you skip is one you never have to upgrade at 2am.</p>
+<blockquote>The code wasn't clever. It was obvious, and that's much harder to write.</blockquote>
+<p>I don't copy everything. A large accounting system has different pressures than a small product. But the core lesson travels well: when in doubt, choose the boring option that a new teammate will understand on day one.</p>
+        </div>
+      </article>
+
+      <div class="ornament" aria-hidden="true"><span></span></div>
+    </main>
+
+    <footer>© 2026 Elaraby Elaidy. All rights reserved.</footer>
+  </div>
+</body>
+</html>

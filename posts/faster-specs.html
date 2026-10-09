@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-mode="professional">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faster Specs Without Faster Machines • Elaraby Elaidy</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.82em' font-size='90' text-anchor='middle' font-family='serif' fill='%23d9a441'>E</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=4">
+  <script>
+    try { document.documentElement.dataset.mode = localStorage.getItem("mode") || "professional"; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="home" href="/">Home</a>
+    </header>
+
+    <main>
+      <article class="post fade">
+        <h1>Faster Specs Without Faster Machines</h1>
+        <p class="meta"><time datetime="2026-07-12">12 Jul 2026</time> · 2 min read</p>
+
+        <div class="prose">
+<p>When a Rails test suite gets slow, the instinct is to throw hardware at it: more CI workers, more parallelism, bigger machines. That helps, but it hides the real problem.</p>
+<p>Profile a slow suite and you usually find the same thing. The tests aren't doing anything expensive. They're doing something cheap, over and over. Creating a company, a user, a chart of accounts, a few products, again for every single example.</p>
+<h3>Measure first</h3>
+<p>TestProf makes the waste visible. <code>FPROF=1</code> shows which factories run most often and how many records they create behind your back. The answer is almost always surprising.</p>
+<pre><code>FPROF=1 bundle exec rspec spec/models</code></pre>
+<h3>Create once, reuse everywhere</h3>
+<p>The biggest win is <code>let_it_be</code>. It creates a record once for the whole group, inside a transaction that rolls back at the end, instead of once per example.</p>
+<pre><code># before: one company per example
+let!(:company) { create(:company) }
+
+# after: one company per group
+let_it_be(:company) { create(:company) }</code></pre>
+<p>The catch is that the record is shared, so a test that changes it can leak into the next one. Use <code>let_it_be(..., reload: true)</code> when a test mutates state, and keep the plain <code>let</code> for anything a test really needs fresh.</p>
+<h3>Then the smaller wins</h3>
+<ul>
+  <li><b>Factory defaults</b> — stop every association from building its own parent company.</li>
+  <li><b>build over create</b> — if a test never touches the database, don't make it.</li>
+  <li><b>before_all</b> — for setup that isn't a single record.</li>
+</ul>
+<p>None of this is clever. It's just refusing to pay for the same work twice. A fast suite isn't a luxury, it's what decides whether people actually run the tests before pushing.</p>
+        </div>
+      </article>
+
+      <div class="ornament" aria-hidden="true"><span></span></div>
+    </main>
+
+    <footer>© 2026 Elaraby Elaidy. All rights reserved.</footer>
+  </div>
+</body>
+</html>

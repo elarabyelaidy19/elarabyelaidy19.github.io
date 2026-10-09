@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-mode="professional">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debits, Credits, and Invariants • Elaraby Elaidy</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.82em' font-size='90' text-anchor='middle' font-family='serif' fill='%23d9a441'>E</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=4">
+  <script>
+    try { document.documentElement.dataset.mode = localStorage.getItem("mode") || "professional"; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="home" href="/">Home</a>
+    </header>
+
+    <main>
+      <article class="post fade">
+        <h1>Debits, Credits, and Invariants</h1>
+        <p class="meta"><time datetime="2026-06-18">18 Jun 2026</time> · 2 min read</p>
+
+        <div class="prose">
+<p>Before I worked on accounting software, I thought of correctness as "the tests pass." Accounting changed that. In accounting, correctness is a rule that must hold <em>every single time</em>, for every customer, forever.</p>
+<p>The oldest one is also the most beautiful: for every journal entry, total debits equal total credits. It has survived for five hundred years because it makes a whole class of mistakes impossible to hide.</p>
+<h3>Invariants beat checks</h3>
+<p>A check asks "is this one thing right?" An invariant says "this can never be wrong." The difference matters when your app writes the same kind of record from a dozen places: invoices, payments, credit notes, inventory adjustments, imports.</p>
+<p>If each of those paths is responsible for balancing its own entry, one of them eventually won't. If the entry itself refuses to exist unbalanced, none of them can.</p>
+<pre><code>class JournalEntry &lt; ApplicationRecord
+  validate :debits_equal_credits
+
+  private
+    def debits_equal_credits
+      return if lines.sum(&amp;:debit) == lines.sum(&amp;:credit)
+      errors.add(:base, "debits and credits must balance")
+    end
+end</code></pre>
+<p>Better still, push the rule down to the database, where no code path can skip it.</p>
+<h3>Find the conservation laws</h3>
+<p>Every domain has rules like this, they're just less famous. Stock in equals stock out plus stock on hand. An invoice's total equals the sum of its lines plus tax. A refund can never exceed what was paid.</p>
+<p>When I start on a new feature now, the first question I ask isn't "what are the screens?" It's "what must always be true?" Write those down, enforce them in one place, and most bugs become impossible instead of merely unlikely.</p>
+<blockquote>Accountants figured out data integrity centuries before we had databases.</blockquote>
+        </div>
+      </article>
+
+      <div class="ornament" aria-hidden="true"><span></span></div>
+    </main>
+
+    <footer>© 2026 Elaraby Elaidy. All rights reserved.</footer>
+  </div>
+</body>
+</html>

@@ -4,27 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Elaraby Elaidy</title>
-  <meta name="description" content="Software engineer writing about Rails, systems, and building things.">
+  <meta name="description" content="Notes and essays on building software that lasts.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23a3341f'>E</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <a class="name" href="/">Elaraby Elaidy</a>
-    <nav><a href="https://github.com/elarabyelaidy19">GitHub</a></nav>
-  </header>
+  <div class="page">
+    <header class="masthead">
+      <div class="topline"><span>Vol. I</span><span>Notes &amp; essays</span><span>Est. 2026</span></div>
+      <div class="masthead-row">
+        <a class="wordmark" href="/">Elaraby <em>Elaidy</em></a>
+        <nav>
+          <a href="/#writing">Writing</a>
+          <a href="/about.html">About</a>
+          <a href="/now.html">Now</a>
+        </nav>
+      </div>
+    </header>
 
-  <main>
-    <h1>Hi, I'm Elaraby.</h1>
-    <p class="lead">Software engineer. I build backend systems with Ruby on Rails and write about what I learn along the way.</p>
+    <main>
+      <section class="section reveal">
+        <p class="label" style="--i:1">Introduction</p>
+        <div style="--i:2">
+          <h1>Notes on building software <em>that lasts.</em></h1>
+          <p class="dek">[Placeholder] A one-line description of who you are and what this site is about. Something like: backend engineer writing about systems, craft, and the slow work of making things well.</p>
+        </div>
+      </section>
 
-    <h2>Writing</h2>
-    <ul class="posts">
-      <li><a href="posts/hello-world.html">Hello, world</a><time datetime="2026-10-09">Oct 9, 2026</time></li>
-    </ul>
-  </main>
+      <section class="section reveal" id="writing">
+        <p class="label" style="--i:3">Writing <span>Latest</span></p>
+        <ol class="posts" style="--i:4">
+          <li>
+            <a href="/posts/hello-world.html">
+              <span class="title">Hello, world<small>Why this site exists, and what I plan to write here.</small></span>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </a>
+          </li>
+        </ol>
+      </section>
 
-  <footer>© 2026 Elaraby Elaidy</footer>
+      <section class="section reveal">
+        <p class="label" style="--i:5">Now <span>Oct 2026</span></p>
+        <div style="--i:6">
+          <p>[Placeholder] A short paragraph about what you're focused on these days: work, reading, learning, a side project.</p>
+          <a class="more" href="/now.html">More on now &rarr;</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Elaraby Elaidy</span>
+      <span>
+        <a href="https://github.com/elarabyelaidy19">GitHub</a>
+        <a href="/now.html#contact">Contact</a>
+      </span>
+    </footer>
+  </div>
 </body>
 </html>

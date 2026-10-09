@@ -4,26 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello, world · Elaraby Elaidy</title>
+  <meta name="description" content="Notes and essays on building software that lasts.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23a3341f'>E</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <a class="name" href="../">Elaraby Elaidy</a>
-    <nav><a href="https://github.com/elarabyelaidy19">GitHub</a></nav>
-  </header>
+  <div class="page">
+    <header class="masthead">
+      <div class="topline"><span>Vol. I</span><span>Notes &amp; essays</span><span>Est. 2026</span></div>
+      <div class="masthead-row">
+        <a class="wordmark" href="/">Elaraby <em>Elaidy</em></a>
+        <nav>
+          <a href="/#writing">Writing</a>
+          <a href="/about.html">About</a>
+          <a href="/now.html">Now</a>
+        </nav>
+      </div>
+    </header>
 
-  <main>
-    <article>
-      <time datetime="2026-10-09">Oct 9, 2026</time>
-      <h1>Hello, world</h1>
-      <p>This is the first post on my new site. It's plain HTML and CSS: no framework, no build step, nothing to break.</p>
-      <p>To write a new post, copy this file, change the content, and add a link to it on the home page.</p>
-      <pre><code>cp posts/hello-world.html posts/my-next-post.html</code></pre>
-    </article>
-  </main>
+    <main>
+      <article>
+        <section class="section reveal">
+          <p class="label" style="--i:1">Essay <span><time datetime="2026-10-09">Oct 9, 2026</time></span></p>
+          <div style="--i:2">
+            <h1>Hello, <em>world.</em></h1>
+            <p class="dek">Why this site exists, and what I plan to write here.</p>
+          </div>
+        </section>
 
-  <footer><a href="../">← All posts</a></footer>
+        <section class="section reveal">
+          <p class="label" style="--i:3">3 min read</p>
+          <div class="body" style="--i:4">
+            <p>Every engineer eventually wants a small corner of the internet that is entirely their own. No feed, no algorithm, no character limit. Just pages, written slowly, that stay where you put them.</p>
+            <p>This is mine. It's plain HTML and CSS, so there is nothing to update, nothing to break, and nothing between the words and the reader.</p>
+            <blockquote>Write it down. The act of explaining is where the understanding happens.</blockquote>
+            <h3>How posts get made</h3>
+            <p>Each post is a single file. To write a new one, I copy this page and change the words:</p>
+            <pre><code>cp posts/hello-world.html posts/my-next-post.html</code></pre>
+            <p>Then I add a line for it to the list on the home page. That's the whole publishing pipeline.</p>
+            <hr>
+            <p>[Placeholder] Replace this post with your own first entry.</p>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <a href="/#writing" style="margin:0">&larr; All writing</a>
+      <span>&copy; 2026 Elaraby Elaidy</span>
+    </footer>
+  </div>
 </body>
 </html>

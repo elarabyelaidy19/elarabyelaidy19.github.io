@@ -7,11 +7,13 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.82em' font-size='90' text-anchor='middle' font-family='serif' fill='%23d9a441'>E</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=5">
   <script>
     try { document.documentElement.dataset.mode = localStorage.getItem("mode") || "professional"; } catch (e) {}
   </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>addEventListener("DOMContentLoaded", () => window.hljs && hljs.highlightAll());</script>
 </head>
 <body>
   <div class="wrap">
@@ -30,7 +32,7 @@
 <h3>Invariants beat checks</h3>
 <p>A check asks "is this one thing right?" An invariant says "this can never be wrong." The difference matters when your app writes the same kind of record from a dozen places: invoices, payments, credit notes, inventory adjustments, imports.</p>
 <p>If each of those paths is responsible for balancing its own entry, one of them eventually won't. If the entry itself refuses to exist unbalanced, none of them can.</p>
-<pre><code>class JournalEntry &lt; ApplicationRecord
+<pre data-lang="Ruby"><code class="language-ruby">class JournalEntry &lt; ApplicationRecord
   validate :debits_equal_credits
 
   private

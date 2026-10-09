@@ -7,11 +7,13 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.82em' font-size='90' text-anchor='middle' font-family='serif' fill='%23d9a441'>E</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=5">
   <script>
     try { document.documentElement.dataset.mode = localStorage.getItem("mode") || "professional"; } catch (e) {}
   </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>addEventListener("DOMContentLoaded", () => window.hljs && hljs.highlightAll());</script>
 </head>
 <body>
   <div class="wrap">
@@ -29,10 +31,10 @@
 <p>Profile a slow suite and you usually find the same thing. The tests aren't doing anything expensive. They're doing something cheap, over and over. Creating a company, a user, a chart of accounts, a few products, again for every single example.</p>
 <h3>Measure first</h3>
 <p>TestProf makes the waste visible. <code>FPROF=1</code> shows which factories run most often and how many records they create behind your back. The answer is almost always surprising.</p>
-<pre><code>FPROF=1 bundle exec rspec spec/models</code></pre>
+<pre data-lang="Shell"><code class="language-bash">FPROF=1 bundle exec rspec spec/models</code></pre>
 <h3>Create once, reuse everywhere</h3>
 <p>The biggest win is <code>let_it_be</code>. It creates a record once for the whole group, inside a transaction that rolls back at the end, instead of once per example.</p>
-<pre><code># before: one company per example
+<pre data-lang="Ruby"><code class="language-ruby"># before: one company per example
 let!(:company) { create(:company) }
 
 # after: one company per group

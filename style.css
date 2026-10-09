@@ -10,6 +10,14 @@
   --display: "Cormorant Garamond", Garamond, serif;
   --body: "EB Garamond", Garamond, Georgia, serif;
   --ring: var(--gold);
+  --code-bg: #f3efe6;
+  --code-ink: #3a3631;
+  --tok-keyword: #a3473a;
+  --tok-string: #5b7a35;
+  --tok-title: #8a5a2b;
+  --tok-symbol: #2f6b87;
+  --tok-number: #a8741a;
+  --tok-comment: #9a958f;
   color-scheme: light;
 }
 
@@ -23,6 +31,14 @@
   --gold-soft: #4d4127;
   --rose: #8a5a4d;
   --ring: #f8f5ed;
+  --code-bg: #0f1621;
+  --code-ink: #dcd6c8;
+  --tok-keyword: #e59a85;
+  --tok-string: #b5cf8a;
+  --tok-title: #e6c27a;
+  --tok-symbol: #8ec5e0;
+  --tok-number: #e0b45a;
+  --tok-comment: #7d8799;
   color-scheme: dark;
 }
 
@@ -204,14 +220,40 @@ footer {
   font-style: italic;
 }
 .prose pre {
-  background: color-mix(in srgb, var(--line) 45%, var(--bg));
+  position: relative;
+  margin: 0 0 1.75rem;
+  background: var(--code-bg);
+  color: var(--code-ink);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  padding: 1.1rem 1.35rem;
   overflow-x: auto;
   font-size: 0.85rem;
+  line-height: 1.65;
+  tab-size: 2;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
-.prose code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; }
+.prose pre[data-lang] { padding-top: 2.1rem; }
+.prose pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.55rem;
+  right: 0.9rem;
+  font: 0.7rem var(--body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.prose code { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 0.85em; }
+.prose pre code { font-size: inherit; white-space: pre; font-variant-ligatures: none; }
+.prose :not(pre) > code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+
+.hljs-keyword, .hljs-built_in, .hljs-literal { color: var(--tok-keyword); }
+.hljs-string, .hljs-regexp { color: var(--tok-string); }
+.hljs-title, .hljs-title.class_, .hljs-type { color: var(--tok-title); }
+.hljs-symbol, .hljs-variable, .hljs-attr, .hljs-params { color: var(--tok-symbol); }
+.hljs-number, .hljs-meta { color: var(--tok-number); }
+.hljs-comment { color: var(--tok-comment); font-style: italic; }
 
 .fade { animation: fade 0.8s ease both; }
 .fade:nth-child(2) { animation-delay: 0.08s; }

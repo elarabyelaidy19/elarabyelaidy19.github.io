@@ -3,60 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, world · Elaraby Elaidy</title>
-  <meta name="description" content="Notes and essays on building software that lasts.">
+  <title>Hello, world • Elaraby Elaidy</title>
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23a3341f'>E</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='.82em' font-size='90' text-anchor='middle' font-family='serif' fill='%23d9a441'>E</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="page">
-    <header class="masthead">
-      <div class="topline"><span>Vol. I</span><span>Notes &amp; essays</span><span>Est. 2026</span></div>
-      <div class="masthead-row">
-        <a class="wordmark" href="/">Elaraby <em>Elaidy</em></a>
-        <nav>
-          <a href="/#writing">Writing</a>
-          <a href="/about.html">About</a>
-          <a href="/now.html">Now</a>
-        </nav>
-      </div>
+  <div class="wrap">
+    <header class="top">
+      <a class="home" href="/">Home</a>
     </header>
 
     <main>
-      <article>
-        <section class="section reveal">
-          <p class="label" style="--i:1">Essay <span><time datetime="2026-10-09">Oct 9, 2026</time></span></p>
-          <div style="--i:2">
-            <h1>Hello, <em>world.</em></h1>
-            <p class="dek">Why this site exists, and what I plan to write here.</p>
-          </div>
-        </section>
+      <article class="post fade">
+        <h1>Hello, world</h1>
+        <p class="meta"><time datetime="2026-10-09">9 Oct 2026</time> · 1 min read</p>
 
-        <section class="section reveal">
-          <p class="label" style="--i:3">3 min read</p>
-          <div class="body" style="--i:4">
-            <p>Every engineer eventually wants a small corner of the internet that is entirely their own. No feed, no algorithm, no character limit. Just pages, written slowly, that stay where you put them.</p>
-            <p>This is mine. It's plain HTML and CSS, so there is nothing to update, nothing to break, and nothing between the words and the reader.</p>
-            <blockquote>Write it down. The act of explaining is where the understanding happens.</blockquote>
-            <h3>How posts get made</h3>
-            <p>Each post is a single file. To write a new one, I copy this page and change the words:</p>
-            <pre><code>cp posts/hello-world.html posts/my-next-post.html</code></pre>
-            <p>Then I add a line for it to the list on the home page. That's the whole publishing pipeline.</p>
-            <hr>
-            <p>[Placeholder] Replace this post with your own first entry.</p>
-          </div>
-        </section>
+        <div class="prose">
+          <p>Every engineer eventually wants a small corner of the internet that is entirely their own. No feed, no algorithm, no character limit. Just pages, written slowly, that stay where you put them.</p>
+          <p>This is mine. It's plain HTML and CSS, so there is nothing to update, nothing to break, and nothing between the words and the reader.</p>
+
+          <h3>What I'll write about</h3>
+          <ul>
+            <li><b>Work</b> — the systems I build and the lessons that come with them.</li>
+            <li><b>Learning</b> — notes on things I'm trying to understand.</li>
+            <li><b>Life</b> — everything else worth paying attention to.</li>
+          </ul>
+
+          <blockquote>Write it down. The act of explaining is where the understanding happens.</blockquote>
+
+          <h3>How posts get made</h3>
+          <p>Each post is a single file. To write a new one, copy this page and change the words:</p>
+          <pre><code>cp posts/hello-world.html posts/my-next-post.html</code></pre>
+          <p>Then add a line for it to the list on the home page. That's the whole publishing pipeline.</p>
+        </div>
       </article>
+
+      <div class="ornament" aria-hidden="true"><span></span></div>
     </main>
 
-    <footer>
-      <a href="/#writing" style="margin:0">&larr; All writing</a>
-      <span>&copy; 2026 Elaraby Elaidy</span>
-    </footer>
+    <footer>© 2026 Elaraby Elaidy. All rights reserved.</footer>
   </div>
 </body>
 </html>

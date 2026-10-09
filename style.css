@@ -9,19 +9,21 @@
   --rose: #d9a99a;
   --display: "Cormorant Garamond", Garamond, serif;
   --body: "EB Garamond", Garamond, Georgia, serif;
+  --ring: var(--gold);
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #17161a;
-    --ink: #ece7dd;
-    --soft: #a9a39b;
-    --faint: #7d7871;
-    --line: #2e2c30;
-    --gold: #e0b45a;
-    --gold-soft: #4a3d22;
-    --rose: #8a5a4d;
-  }
+:root[data-mode="professional"] {
+  --bg: #141d29;
+  --ink: #f8f5ed;
+  --soft: #b8ad94;
+  --faint: #8f8775;
+  --line: #333d4d;
+  --gold: #ca9d2b;
+  --gold-soft: #4d4127;
+  --rose: #8a5a4d;
+  --ring: #f8f5ed;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -32,6 +34,7 @@ body {
   color: var(--ink);
   font: 400 1.25rem/1.75 var(--body);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 ::selection { background: var(--gold-soft); }
@@ -249,7 +252,7 @@ footer {
 .portrait:hover { transform: scale(1.05); }
 .portrait:focus-visible { border-radius: 50%; outline-offset: 4px; }
 
-.rings { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); }
+.rings { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--ring); transition: color 0.6s ease; }
 .rings g { transform-origin: center; animation: whirl 30s linear infinite; }
 .rings .medium { animation-duration: 20s; animation-direction: reverse; }
 .rings .fast { animation-duration: 12s; }
